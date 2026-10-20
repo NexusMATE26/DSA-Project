@@ -23,6 +23,8 @@ endif()
 add_library(internpath_domain STATIC
     src/domain/Matching.cpp
     src/algo/GraphAlgorithms.cpp
+    src/core/Services.cpp
+    src/core/Persistence.cpp
 )
 target_include_directories(internpath_domain PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
 
@@ -43,6 +45,10 @@ if(INTERNPATH_BUILD_TESTS)
     add_executable(test_date tests/test_date.cpp)
     target_link_libraries(test_date PRIVATE internpath_domain)
     add_test(NAME date_validation COMMAND test_date)
+
+    add_executable(test_e2e_integration tests/test_e2e_integration.cpp)
+    target_link_libraries(test_e2e_integration PRIVATE internpath_domain)
+    add_test(NAME e2e_integration COMMAND test_e2e_integration)
 
     # These exercise tests intentionally fail until the team implements the TODOs.
     # They compile by default, but are not included in CTest until opted in.

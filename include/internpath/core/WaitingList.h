@@ -17,6 +17,10 @@ namespace internpath
     public:
         // TODO A22-A24: append rank, withdraw by handle, promote head.
         WaitingList() = default;
+        WaitingList(const WaitingList&) = delete;
+        WaitingList& operator=(const WaitingList&) = delete;
+        WaitingList(WaitingList&&) noexcept = default;
+        WaitingList& operator=(WaitingList&&) noexcept = default;
 
         std::size_t size() const
         {

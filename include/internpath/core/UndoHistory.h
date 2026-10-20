@@ -22,6 +22,10 @@ namespace internpath
     public:
         // TODO A25: record edit only after success; pop on undo.
         UndoHistory() = default;
+        UndoHistory(const UndoHistory&) = delete;
+        UndoHistory& operator=(const UndoHistory&) = delete;
+        UndoHistory(UndoHistory&&) noexcept = default;
+        UndoHistory& operator=(UndoHistory&&) noexcept = default;
 
         bool empty() const
         {
