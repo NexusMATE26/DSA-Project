@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "configurePresets": [
+    {"name":"dev", "displayName":"Debug development", "generator":"Unix Makefiles", "binaryDir":"${sourceDir}/build/dev", "cacheVariables":{"CMAKE_BUILD_TYPE":"Debug"}},
+    {"name":"release", "generator":"Unix Makefiles", "binaryDir":"${sourceDir}/build/release", "cacheVariables":{"CMAKE_BUILD_TYPE":"Release"}}
+  ]
+}

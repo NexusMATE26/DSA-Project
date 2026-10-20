@@ -1,0 +1,12 @@
+build/
+.vs/
+.idea/
+.vscode/
+.DS_Store
+*.exe
+*.o
+*.obj
+*.pdb
+*.ilk
+*.log
+data/runtime/
