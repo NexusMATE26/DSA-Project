@@ -92,3 +92,44 @@ if(INTERNPATH_BUILD_TESTS)
         add_test(NAME exercise_sort_search COMMAND exercise_sort_search)
     endif()
 endif()
+
+# ==========================================
+# Comprehensive DSA Stress & Benchmark Suite
+# ==========================================
+option(INTERNPATH_BUILD_BENCHMARKS "Build DSA stress tests and performance benchmark suite" ON)
+
+if(INTERNPATH_BUILD_BENCHMARKS)
+    set(BENCHMARK_TARGETS
+        bench_containers
+        bench_hash
+        bench_avl
+        bench_graph
+        bench_sort
+        bench_search
+        bench_workflows
+        bench_api
+    )
+
+    add_executable(bench_containers bench/benchmark_containers.cpp)
+    add_executable(bench_hash bench/benchmark_hash.cpp)
+    add_executable(bench_avl bench/benchmark_avl.cpp)
+    add_executable(bench_graph bench/benchmark_graph.cpp)
+    add_executable(bench_sort bench/benchmark_sort.cpp)
+    add_executable(bench_search bench/benchmark_search.cpp)
+    add_executable(bench_workflows bench/benchmark_workflows.cpp)
+    add_executable(bench_api bench/benchmark_api.cpp)
+
+    foreach(target IN LISTS BENCHMARK_TARGETS)
+        target_include_directories(${target} PRIVATE
+            ${CMAKE_CURRENT_SOURCE_DIR}
+            ${CMAKE_CURRENT_SOURCE_DIR}/include
+        )
+        target_link_libraries(${target} PRIVATE internpath_domain)
+        if(WIN32)
+            target_link_libraries(${target} PRIVATE psapi ws2_32)
+        endif()
+        if(MINGW)
+            target_link_options(${target} PRIVATE -static-libgcc -static-libstdc++)
+        endif()
+    endforeach()
+endif()

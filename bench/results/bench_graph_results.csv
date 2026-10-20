@@ -1,0 +1,17 @@
+suite,benchmark,workload,num_operations,iterations,total_time_ms,min_us,max_us,mean_us,median_us,p95_us,p99_us,throughput_ops_per_sec,memory_delta_mb,peak_rss_mb,verified
+Directed Graph & Prerequisite Algorithms,DirectedGraph::construction,V=100,297,3,0.9902,302.1,358.3,329.8,329,358.3,358.3,899818,0.0117188,4.87109,true
+Directed Graph & Prerequisite Algorithms,DFS::isReachable_queries,V=100,1000,5,9.6191,1582.1,2537.3,1922.1,1832.2,2537.3,2537.3,519799,0,4.9375,true
+Directed Graph & Prerequisite Algorithms,DirectedGraph::cycle_rejection,V=100,100,5,0.538,106.4,109.7,107.46,106.9,109.7,109.7,929368,0,4.9375,true
+Directed Graph & Prerequisite Algorithms,Kahn::topologicalOrder,V=100,100,5,0.0482,8.8,10.8,9.48,9.4,10.8,10.8,1.03734e+07,0,4.9375,true
+Directed Graph & Prerequisite Algorithms,DirectedGraph::construction,V=500,1497,3,13.4754,4151.2,4816.3,4491,4505.5,4816.3,4816.3,333274,0.0117188,5.07422,true
+Directed Graph & Prerequisite Algorithms,DFS::isReachable_queries,V=500,1000,5,26.712,4941.3,5820.5,5341.4,5462.2,5820.5,5820.5,187182,0,5.07422,true
+Directed Graph & Prerequisite Algorithms,DirectedGraph::cycle_rejection,V=500,100,5,1.4692,291.3,297.6,293.74,293.4,297.6,297.6,340321,0,5.07422,true
+Directed Graph & Prerequisite Algorithms,Kahn::topologicalOrder,V=500,500,5,0.1836,35.1,39.9,36.58,36,39.9,39.9,1.36166e+07,0,5.07422,true
+Directed Graph & Prerequisite Algorithms,DirectedGraph::construction,V=2000,5997,3,171.213,56280,58235.8,57069.5,56692.8,58235.8,58235.8,105079,0.0234375,5.64844,true
+Directed Graph & Prerequisite Algorithms,DFS::isReachable_queries,V=2000,1000,5,81.4564,15735.2,17275.4,16289.5,16114,17275.4,17275.4,61382.5,0,5.64844,true
+Directed Graph & Prerequisite Algorithms,DirectedGraph::cycle_rejection,V=2000,100,5,5.27,992.8,1177.6,1052.9,1024.4,1177.6,1177.6,94876.7,0,5.64844,true
+Directed Graph & Prerequisite Algorithms,Kahn::topologicalOrder,V=2000,2000,5,0.8917,164.8,206.1,178.12,172.5,206.1,206.1,1.12145e+07,0,5.64844,true
+Directed Graph & Prerequisite Algorithms,DirectedGraph::construction,V=5000,14997,3,1224.16,405544,411759,408052,406853,411759,411759,36752.6,0,8.37891,true
+Directed Graph & Prerequisite Algorithms,DFS::isReachable_queries,V=5000,1000,5,220.165,42868.3,45100.2,44031.7,44346.7,45100.2,45100.2,22710.2,0,8.37891,true
+Directed Graph & Prerequisite Algorithms,DirectedGraph::cycle_rejection,V=5000,100,5,14.0102,2591.3,3058,2801.06,2759.1,3058,3058,35688.3,0,8.37891,true
+Directed Graph & Prerequisite Algorithms,Kahn::topologicalOrder,V=5000,5000,5,2.5542,429.7,632,510.56,514.2,632,632,9.7878e+06,0,8.37891,true
