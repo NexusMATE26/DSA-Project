@@ -7,3 +7,21 @@ id,name,category
 6,RTOS,Embedded
 7,Digital Electronics,Electronics
 8,Python,Programming
+9,Java Enterprise,Programming
+10,Go Systems,Programming
+11,Web Foundations (HTML/CSS/JS),Web
+12,PCB Design & Hardware Lab,Electronics
+13,FPGA & Verilog,Electronics
+14,Operating Systems Internals,Systems
+15,Linux System Administration,Systems
+16,Distributed Systems,Systems
+17,Computer Networks & TCP/IP,Systems
+18,Concurrent & Multithreaded C++,Programming
+19,Docker & Containerization,DevOps
+20,Kubernetes & Orchestration,DevOps
+21,CI/CD & Automated Testing,DevOps
+22,AWS Cloud Architecture,Cloud
+23,Relational Databases (SQL),Database
+24,Database Indexing & Tuning,Database
+25,Machine Learning Fundamentals,AI & Data
+26,Deep Learning with PyTorch,AI & Data

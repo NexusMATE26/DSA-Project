@@ -1,3 +1,19 @@
 id,companyId,title,location,mode,stipend,capacity,deadline,status
 1,1,Embedded Systems Intern,Colombo,Hybrid,25000,2,20261115,Open
 2,2,Automation Intern,Galle,Onsite,18000,1,20261130,Open
+3,3,Distributed Systems Platform Intern,Colombo,Hybrid,45000,3,20261215,Open
+4,4,Low-Latency C++ Engine Intern,Colombo,Hybrid,60000,2,20261201,Open
+5,5,Cloud Infrastructure & SRE Intern,Remote,Remote,40000,2,20270110,Open
+6,6,Supply Chain Backend Intern,Colombo,Hybrid,50000,3,20261125,Open
+7,8,Firmware & RTOS Engineering Intern,Colombo,Onsite,38000,2,20261220,Open
+8,11,Full-Stack SaaS Platform Intern,Colombo,Hybrid,35000,4,20270115,Open
+9,12,Computer Vision & Edge AI Intern,Colombo,Onsite,55000,1,20261120,Open
+10,7,Enterprise Core Database Intern,Colombo,Hybrid,42000,2,20270228,Open
+11,9,Cybersecurity & Network Defense Intern,Colombo,Onsite,32000,2,20261205,Open
+12,10,Autonomous Guidance Systems Intern,Kandy,Hybrid,48000,2,20270315,Open
+13,1,IoT Telemetry & Hardware Intern,Colombo,Hybrid,30000,2,20261110,Open
+14,3,API Gateway & Microservices Intern,Remote,Remote,45000,3,20270130,Open
+15,4,Algorithmic Trade Analytics Intern,Colombo,Hybrid,65000,1,20261118,Open
+16,11,Design Systems & Frontend Intern,Colombo,Hybrid,32000,2,20270215,Open
+17,2,Industrial Robotics Firmware Intern,Galle,Onsite,28000,2,20261210,Open
+18,8,Smart RFID & Embedded Edge Intern,Colombo,Onsite,36000,2,20261228,Open

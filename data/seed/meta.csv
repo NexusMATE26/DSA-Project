@@ -1,9 +1,9 @@
 key,value
 schemaVersion,1
-nextStudentId,3
-nextSkillId,9
-nextCompanyId,3
-nextInternshipId,3
-nextApplicationId,1
-nextSubmitSequence,1
+nextStudentId,9
+nextSkillId,27
+nextCompanyId,13
+nextInternshipId,19
+nextApplicationId,13
+nextSubmitSequence,13
 demoToday,20261020

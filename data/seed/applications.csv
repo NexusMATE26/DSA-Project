@@ -1,1 +1,13 @@
 id,studentId,internshipId,status,submitSequence,fitNumeratorAtSubmit,fitDenominatorAtSubmit,rankAtClose
+1,1,2,Allocated,1,54,54,1
+2,4,2,Waitlisted,2,42,54,2
+3,4,7,Allocated,3,84,84,1
+4,1,7,Waitlisted,4,68,84,2
+5,2,3,Allocated,5,66,78,1
+6,3,3,Allocated,6,58,78,2
+7,8,4,Allocated,7,90,96,1
+8,2,4,Waitlisted,8,72,96,2
+9,1,13,Submitted,9,66,72,0
+10,3,8,Submitted,10,74,84,0
+11,5,9,Submitted,11,88,96,0
+12,6,11,Submitted,12,64,66,0
