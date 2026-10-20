@@ -88,5 +88,17 @@ namespace internpath
             order_.clear();
             handles_.clear();
         }
+
+        DynamicArray<ApplicationId> snapshot() const
+        {
+            DynamicArray<ApplicationId> result;
+            auto* node = order_.firstNode();
+            while (node != nullptr)
+            {
+                result.pushBack(node->value);
+                node = node->next;
+            }
+            return result;
+        }
     };
 }

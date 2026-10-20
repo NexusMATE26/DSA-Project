@@ -32,6 +32,23 @@ target_include_directories(internpath_domain PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/
 add_executable(internpath_smoke tools/smoke_main.cpp)
 target_link_libraries(internpath_smoke PRIVATE internpath_domain)
 
+# Milestone 4 HTTP transport layer and API server
+add_library(internpath_api STATIC
+    src/api/HttpServer.cpp
+    src/api/Routes.cpp
+)
+target_include_directories(internpath_api PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}/include
+    ${CMAKE_CURRENT_SOURCE_DIR}/third_party
+)
+target_link_libraries(internpath_api PUBLIC internpath_domain)
+if(WIN32)
+    target_link_libraries(internpath_api PUBLIC ws2_32 crypt32)
+endif()
+
+add_executable(internpath_server src/server/main.cpp)
+target_link_libraries(internpath_server PRIVATE internpath_api)
+
 if(INTERNPATH_BUILD_TESTS)
     enable_testing()
     add_executable(test_matching tests/test_matching.cpp)
@@ -50,6 +67,10 @@ if(INTERNPATH_BUILD_TESTS)
     target_link_libraries(test_e2e_integration PRIVATE internpath_domain)
     add_test(NAME e2e_integration COMMAND test_e2e_integration)
 
+    add_executable(test_api_smoke tests/test_api_smoke.cpp)
+    target_link_libraries(test_api_smoke PRIVATE internpath_api)
+    add_test(NAME api_smoke COMMAND test_api_smoke)
+
     # These exercise tests intentionally fail until the team implements the TODOs.
     # They compile by default, but are not included in CTest until opted in.
     add_executable(exercise_dynamic_array tests/exercises/test_dynamic_array.cpp)
@@ -61,6 +82,3 @@ if(INTERNPATH_BUILD_TESTS)
         add_test(NAME exercise_sort_search COMMAND exercise_sort_search)
     endif()
 endif()
-
-# Milestone 0 does not build a server. Antigravity should first vendor approved
-# HTTP/JSON infrastructure and introduce the 'internpath_server' target in M1.
