@@ -53,6 +53,11 @@ target_link_libraries(internpath_server PRIVATE internpath_api)
 add_executable(internpath_cli src/cli/main.cpp)
 target_link_libraries(internpath_cli PRIVATE internpath_domain)
 
+if(MINGW)
+    target_link_options(internpath_cli PRIVATE -static-libgcc -static-libstdc++)
+    target_link_options(internpath_server PRIVATE -static-libgcc -static-libstdc++)
+endif()
+
 
 if(INTERNPATH_BUILD_TESTS)
     enable_testing()

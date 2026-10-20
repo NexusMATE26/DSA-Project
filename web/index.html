@@ -3,279 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>InternPath - Intelligent Internship Matching & Career Readiness Platform</title>
-    <meta name="description" content="Discover verified engineering internships, calculate exact compatibility fit, generate prerequisite learning roadmaps, and manage your placement lifecycle.">
+    <title>InternPath — Your Path to Opportunity</title>
+    <meta name="description" content="Intelligent internship matching and career readiness platform connecting university students with technical opportunities and prerequisite learning paths.">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <!-- Sticky Navigation Header -->
-        <header class="navbar">
-            <div class="brand" onclick="document.querySelector('.nav-tab[data-view=\'recommendations\']').click()">
-                <div class="brand-icon">
-                    <svg viewBox="0 0 24 24">
-                        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
-                    </svg>
+    <div class="app-layout">
+        <!-- Persistent Left Sidebar (Braintrust Style) -->
+        <aside class="app-sidebar">
+            <div>
+                <div class="brand-wrapper" onclick="switchNav('overview')">
+                    <div class="brand-icon">
+                        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+                    </div>
+                    <span class="brand-title">InternPath</span>
                 </div>
-                <span class="brand-name">InternPath</span>
-                <span class="brand-badge">Enterprise</span>
+
+                <div class="nav-group">
+                    <span class="nav-section-title">Career Workspace</span>
+                    <button class="nav-item active" data-view="overview" onclick="switchNav('overview')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect></svg>
+                        <span>Dashboard</span>
+                    </button>
+                    <button class="nav-item" data-view="explore" onclick="switchNav('explore')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="2" y="7" width="20" height="14" rx="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        <span>Explore Internships</span>
+                    </button>
+                    <button class="nav-item" data-view="skills" onclick="switchNav('skills')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path></svg>
+                        <span>My Skills</span>
+                    </button>
+                    <button class="nav-item" data-view="roadmap" onclick="switchNav('roadmap')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="6" y1="3" x2="6" y2="15"></line><circle cx="18" cy="6" r="3"></circle><circle cx="6" cy="18" r="3"></circle><path d="M18 9a9 9 0 0 1-9 9"></path></svg>
+                        <span>Learning Roadmap</span>
+                    </button>
+                    <button class="nav-item" data-view="applications" onclick="switchNav('applications')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+                        <span>My Applications</span>
+                    </button>
+
+                    <span class="nav-section-title" style="margin-top: 1rem;">Administration</span>
+                    <button class="nav-item" data-view="admin" onclick="switchNav('admin')">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+                        <span>Operations Console</span>
+                    </button>
+                </div>
             </div>
 
-            <nav class="nav-tabs" role="tablist">
-                <button class="nav-tab active" data-view="recommendations" id="tabRecommendations">
-                    <span>✨ Matches</span>
-                </button>
-                <button class="nav-tab" data-view="explore" id="tabExplore">
-                    <span>💼 Explore</span>
-                </button>
-                <button class="nav-tab" data-view="planner" id="tabPlanner">
-                    <span>🗺 Roadmap</span>
-                </button>
-                <button class="nav-tab" data-view="applications" id="tabApplications">
-                    <span>📄 Applications</span>
-                </button>
-                <button class="nav-tab" data-view="profile" id="tabProfile">
-                    <span>👤 Profile & Skills</span>
-                </button>
-                <button class="nav-tab" data-view="admin" id="tabAdmin">
-                    <span>⚙ Operations</span>
-                </button>
-            </nav>
-
-            <div class="nav-actions">
-                <div class="student-selector">
-                    <label for="studentSelect">Profile:</label>
-                    <select id="studentSelect" class="student-select"></select>
-                    <button class="btn btn-secondary btn-icon btn-sm" id="openAddStudentModal" title="Add New Student Profile">＋</button>
-                </div>
-                <div class="system-pill">
-                    <span class="status-dot"></span>
-                    <span>Engine Online</span>
+            <div class="sidebar-footer">
+                <div class="profile-card-mini">
+                    <div class="avatar-circle" id="userAvatarText">S1</div>
+                    <div class="profile-meta">
+                        <h4 id="userDisplayName">Demo Student One</h4>
+                        <select id="sidebarStudentSelect" onchange="handleStudentSwitch(this.value)"></select>
+                    </div>
                 </div>
             </div>
-        </header>
+        </aside>
 
-        <!-- Main Body -->
-        <main class="main-content">
-            <!-- Universal Metric Stats Strip -->
-            <section class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-label">Active Openings</div>
-                    <div class="stat-value" id="statTotalOpenings">0</div>
-                    <div class="stat-sub">Verified partner roles</div>
+        <!-- Main Workspace Area -->
+        <main class="app-main">
+            <!-- Top Header -->
+            <header class="top-header">
+                <div class="header-search">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <input type="text" id="globalSearchInput" placeholder="Search internships by title, tech stack, or city..." oninput="handleGlobalSearch(this.value)">
                 </div>
-                <div class="stat-card">
-                    <div class="stat-label">Eligible Matches</div>
-                    <div class="stat-value" id="statEligibleMatches">0</div>
-                    <div class="stat-sub">Meets all mandatory criteria</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">Top Compatibility</div>
-                    <div class="stat-value" id="statTopMatch">0%</div>
-                    <div class="stat-sub">Optimal career alignment</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label">My Applications</div>
-                    <div class="stat-value" id="statActiveApplications">0</div>
-                    <div class="stat-sub">Submitted & tracked</div>
-                </div>
-            </section>
 
-            <!-- VIEW 1: Personalized Matches & Recommendations -->
-            <section id="view-recommendations" class="view-section active">
-                <div class="view-header">
-                    <div class="view-title-group">
-                        <h1>Ranked Internship Matches</h1>
-                        <p>Opportunities ordered by exact skill compatibility fit, eligibility, and upcoming deadlines.</p>
+                <div class="header-actions">
+                    <div class="engine-pill">
+                        <span class="engine-dot"></span>
+                        <span>Engine Online</span>
                     </div>
+                    <button class="btn btn-secondary btn-sm" onclick="openAddCandidateModal()">+ Candidate</button>
                 </div>
-                <div class="card-grid" id="recommendationsList">
-                    <!-- Populated via app.js -->
-                </div>
-            </section>
+            </header>
 
-            <!-- VIEW 2: Explore Catalogue -->
-            <section id="view-explore" class="view-section">
-                <div class="view-header">
-                    <div class="view-title-group">
-                        <h1>Explore Internship Openings</h1>
-                        <p>Browse live listings from top technology employers with transparent skill expectations.</p>
+            <!-- Workspace Views -->
+            <div class="workspace-content">
+                <!-- VIEW 1: Student Overview (Braintrust Dashboard Inspired) -->
+                <section id="view-overview" class="view-panel active">
+                    <div class="greeting-section">
+                        <h1 class="greeting-title" id="greetingHeading">Hi, Candidate!</h1>
+                        <p class="greeting-subtitle">Welcome to your internship discovery workspace. Here are your verified matches and next learning milestones.</p>
                     </div>
-                </div>
 
-                <div class="filter-bar">
-                    <div class="search-input-wrap">
-                        <svg class="search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                        <input type="text" id="catalogueSearch" class="search-input" placeholder="Search by title, company, or city...">
+                    <!-- 3 Braintrust-style Tint Hero Cards -->
+                    <div class="hero-tints-grid">
+                        <div class="hero-tint-card tint-peach">
+                            <div>
+                                <h3 class="tint-title">Find your next opportunity</h3>
+                                <p class="tint-desc">Discover roles matching your declared technical proficiencies.</p>
+                            </div>
+                            <button class="tint-btn" onclick="switchNav('explore')">Browse roles →</button>
+                        </div>
+
+                        <div class="hero-tint-card tint-purple">
+                            <div>
+                                <h3 class="tint-title">Bridge your skill gaps</h3>
+                                <p class="tint-desc">Reverse-prerequisite roadmaps guide you step-by-step toward eligibility.</p>
+                            </div>
+                            <button class="tint-btn" onclick="switchNav('roadmap')">View roadmap →</button>
+                        </div>
+
+                        <div class="hero-tint-card tint-mint">
+                            <div>
+                                <h3 class="tint-title">Track your applications</h3>
+                                <p class="tint-desc">Monitor allocated placements, waitlist queue status, and promotions.</p>
+                            </div>
+                            <button class="tint-btn" onclick="switchNav('applications')">My status →</button>
+                        </div>
                     </div>
-                    <div class="filter-group">
-                        <select id="catalogueModeFilter" class="select-filter">
-                            <option value="ALL">All Work Modes</option>
-                            <option value="Onsite">Onsite</option>
-                            <option value="Hybrid">Hybrid</option>
-                            <option value="Remote">Remote</option>
-                        </select>
+
+                    <!-- Recommended Roles Grid -->
+                    <div class="section-header-bar">
+                        <h2>Top Opportunities For You</h2>
+                        <a class="section-link" onclick="switchNav('explore')">View all openings →</a>
                     </div>
-                </div>
 
-                <div class="card-grid" id="catalogueList">
-                    <!-- Populated via app.js -->
-                </div>
-            </section>
-
-            <!-- VIEW 3: Skill-Gap & Reverse-Prerequisite Roadmap -->
-            <section id="view-planner" class="view-section">
-                <div class="view-header">
-                    <div class="view-title-group">
-                        <h1>Career Readiness & Learning Roadmap</h1>
-                        <p>Topologically scheduled milestones resolving skill gaps and prerequisite chains for target roles.</p>
+                    <div class="opportunity-grid" id="overviewRecommendedGrid">
+                        <!-- Rendered by app.js -->
                     </div>
-                    <div class="view-actions">
-                        <label for="plannerInternshipSelect" style="font-size: 0.85rem; color: var(--text-secondary); font-weight: 600;">Target Role:</label>
-                        <select id="plannerInternshipSelect" class="select-filter" style="min-width: 280px;"></select>
+
+                    <!-- Next Recommended Step Section -->
+                    <div class="section-header-bar" style="margin-top: 1rem;">
+                        <h2>Recommended Career Step</h2>
                     </div>
-                </div>
-
-                <div class="roadmap-container" id="roadmapContent">
-                    <!-- Populated via app.js -->
-                </div>
-            </section>
-
-            <!-- VIEW 4: My Applications -->
-            <section id="view-applications" class="view-section">
-                <div class="view-header">
-                    <div class="view-title-group">
-                        <h1>Application Management</h1>
-                        <p>Live status tracker with transparent waitlist positioning and automated promotion handling.</p>
+                    <div id="overviewNextStepCard">
+                        <!-- Rendered by app.js -->
                     </div>
-                </div>
+                </section>
 
-                <div class="table-container">
-                    <table class="custom-table">
-                        <thead>
-                            <tr>
-                                <th>Position</th>
-                                <th>Company</th>
-                                <th>Sequence</th>
-                                <th>Fit Score</th>
-                                <th>Current Status</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="applicationsTableBody">
-                            <!-- Populated via app.js -->
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- VIEW 5: Profile & Skills Matrix -->
-            <section id="view-profile" class="view-section">
-                <div class="view-header">
-                    <div class="view-title-group">
-                        <h1>Student Profile & Skill Matrix</h1>
-                        <p>Configure personal details and declare your engineering proficiencies on a 0 to 3 scale.</p>
+                <!-- VIEW 2: Explore Internships (Two-Column Master-Detail) -->
+                <section id="view-explore" class="view-panel">
+                    <div class="section-header-bar">
+                        <div>
+                            <h2>Internship Directory</h2>
+                            <p style="font-size: 0.875rem; color: var(--text-muted);">Explore verified partner postings with transparent technical expectations.</p>
+                        </div>
                     </div>
-                    <div class="view-actions">
-                        <button class="btn btn-undo" id="btnUndoProfile" onclick="undoProfileChange()">
+
+                    <div class="filter-bar-clean">
+                        <button class="filter-chip active" data-filter="ALL" onclick="setModeFilter('ALL', this)">All Modes</button>
+                        <button class="filter-chip" data-filter="Hybrid" onclick="setModeFilter('Hybrid', this)">Hybrid</button>
+                        <button class="filter-chip" data-filter="Onsite" onclick="setModeFilter('Onsite', this)">Onsite</button>
+                        <button class="filter-chip" data-filter="Remote" onclick="setModeFilter('Remote', this)">Remote</button>
+                    </div>
+
+                    <div class="split-view-container">
+                        <!-- Left Pane: List -->
+                        <div class="split-list-pane" id="exploreListingPane">
+                            <!-- Rendered by app.js -->
+                        </div>
+
+                        <!-- Right Pane: Sticky Opportunity Detail -->
+                        <div class="split-detail-pane" id="exploreDetailPane">
+                            <!-- Rendered by app.js -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- VIEW 3: Career Learning Roadmap (Topological Connected Path) -->
+                <section id="view-roadmap" class="view-panel">
+                    <div class="section-header-bar">
+                        <div>
+                            <h2>Career Readiness & Prerequisite Roadmap</h2>
+                            <p style="font-size: 0.875rem; color: var(--text-muted);">Reverse-prerequisite propagation scheduled in topological milestone phases.</p>
+                        </div>
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <label for="roadmapRoleSelect" style="font-size: 0.825rem; font-weight: 600; color: var(--text-heading);">Target Role:</label>
+                            <select id="roadmapRoleSelect" class="form-input" style="width: auto; padding: 0.4rem 0.75rem;" onchange="handleRoadmapRoleChange(this.value)"></select>
+                        </div>
+                    </div>
+
+                    <div id="roadmapContainer">
+                        <!-- Rendered by app.js -->
+                    </div>
+                </section>
+
+                <!-- VIEW 4: My Skills Matrix -->
+                <section id="view-skills" class="view-panel">
+                    <div class="section-header-bar">
+                        <div>
+                            <h2>Declared Technical Proficiencies</h2>
+                            <p style="font-size: 0.875rem; color: var(--text-muted);">Declare your engineering skills on a 0 to 3 scale. Revert changes anytime with stack-driven undo.</p>
+                        </div>
+                        <button class="btn btn-undo btn-sm" onclick="handleUndoSkillEdit()">
                             <span>↶ Undo Last Change</span>
                         </button>
                     </div>
-                </div>
 
-                <div style="display: grid; grid-template-columns: 1fr 2fr; gap: 1.5rem; flex-wrap: wrap;">
-                    <div class="glass-card">
-                        <h3 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem;">Personal Details</h3>
-                        <div class="form-group">
-                            <label class="form-label" for="profileName">Full Name</label>
-                            <input type="text" id="profileName" class="form-control">
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="profileEmail">University Email</label>
-                            <input type="email" id="profileEmail" class="form-control">
-                        </div>
-                        <button class="btn btn-primary" id="saveProfileBtn" style="width: 100%; margin-top: 0.5rem;">
-                            Save Profile
-                        </button>
+                    <div class="skills-grid-clean" id="skillsMatrixGrid">
+                        <!-- Rendered by app.js -->
                     </div>
+                </section>
 
-                    <div class="glass-card">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
-                            <div>
-                                <h3 style="font-size: 1.15rem; font-weight: 700;">Declared Engineering Skills</h3>
-                                <p style="font-size: 0.825rem; color: var(--text-secondary);">Levels: 0 = Unset | 1 = Novice | 2 = Competent | 3 = Proficient</p>
-                            </div>
-                        </div>
-                        <div class="skills-matrix" id="profileSkillsMatrix">
-                            <!-- Populated via app.js -->
+                <!-- VIEW 5: My Applications -->
+                <section id="view-applications" class="view-panel">
+                    <div class="section-header-bar">
+                        <div>
+                            <h2>My Tracked Applications</h2>
+                            <p style="font-size: 0.875rem; color: var(--text-muted);">Real-time status updates with queue ranking and automated waitlist promotion.</p>
                         </div>
                     </div>
-                </div>
-            </section>
 
-            <!-- VIEW 6: Operations & Placement Administration -->
-            <section id="view-admin" class="view-section">
-                <div class="view-header">
-                    <div class="view-title-group">
-                        <h1>Operations & Recruitment Administration</h1>
-                        <p>Manage application closure rounds, waiting list promotions, enterprise partners, and data snapshots.</p>
+                    <div class="table-card">
+                        <table class="clean-table">
+                            <thead>
+                                <tr>
+                                    <th>Role Title</th>
+                                    <th>Employer</th>
+                                    <th>Submission Seq</th>
+                                    <th>Compatibility Fit</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="applicationsTableBody">
+                                <!-- Rendered by app.js -->
+                            </tbody>
+                        </table>
                     </div>
-                    <div class="view-actions">
-                        <button class="btn btn-secondary btn-sm" onclick="saveCsvSnapshot()">
-                            💾 Save CSV Snapshot
-                        </button>
-                        <button class="btn btn-secondary btn-sm" onclick="reloadCsvSnapshot()">
-                            🔄 Reload CSV Snapshot
-                        </button>
-                        <button class="btn btn-secondary btn-sm" id="openAddCompanyModal">
-                            + Partner Company
-                        </button>
-                        <button class="btn btn-primary btn-sm" id="openAddInternshipModal">
-                            + Publish Internship
-                        </button>
-                    </div>
-                </div>
+                </section>
 
-                <div class="table-container">
-                    <table class="custom-table">
-                        <thead>
-                            <tr>
-                                <th>Internship Role</th>
-                                <th>Company</th>
-                                <th>Capacity</th>
-                                <th>Round Status</th>
-                                <th>Round Operations</th>
-                            </tr>
-                        </thead>
-                        <tbody id="adminInternshipRows">
-                            <!-- Populated via app.js -->
-                        </tbody>
-                    </table>
-                </div>
-            </section>
+                <!-- VIEW 6: Operations & Administration Console -->
+                <section id="view-admin" class="view-panel">
+                    <div class="section-header-bar">
+                        <div>
+                            <h2>Recruitment Operations & Round Management</h2>
+                            <p style="font-size: 0.875rem; color: var(--text-muted);">Manage selection rounds, execute deterministic applicant ranking, and snapshot datasets.</p>
+                        </div>
+                        <div style="display: flex; gap: 0.5rem;">
+                            <button class="btn btn-secondary btn-sm" onclick="saveCsvSnapshot()">💾 Save CSV</button>
+                            <button class="btn btn-secondary btn-sm" onclick="reloadCsvSnapshot()">🔄 Reload CSV</button>
+                            <button class="btn btn-secondary btn-sm" onclick="openAddCompanyModal()">+ Company</button>
+                            <button class="btn btn-primary btn-sm" onclick="openAddInternshipModal()">+ Publish Role</button>
+                        </div>
+                    </div>
+
+                    <div class="table-card">
+                        <table class="clean-table">
+                            <thead>
+                                <tr>
+                                    <th>Opportunity</th>
+                                    <th>Company</th>
+                                    <th>Capacity</th>
+                                    <th>Status</th>
+                                    <th>Round Operations</th>
+                                </tr>
+                            </thead>
+                            <tbody id="adminRoundsTableBody">
+                                <!-- Rendered by app.js -->
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
         </main>
     </div>
 
     <!-- Modals -->
-    <!-- 1. Add Student Modal -->
-    <div id="addStudentModal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Register Candidate Profile</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <form id="addStudentForm">
+    <!-- 1. Add Candidate Modal -->
+    <div id="addCandidateModal" class="modal-overlay">
+        <div class="modal-card">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-heading); margin-bottom: 1.25rem;">Register Candidate</h3>
+            <form id="addCandidateForm" onsubmit="submitNewCandidate(event)">
                 <div class="form-group">
-                    <label class="form-label" for="newStudentName">Candidate Full Name</label>
-                    <input type="text" id="newStudentName" class="form-control" required placeholder="e.g. Maya Jayawardena">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" id="candidateNameInput" class="form-input" required placeholder="e.g. Rachel Silva">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="newStudentEmail">University Email</label>
-                    <input type="email" id="newStudentEmail" class="form-control" required placeholder="e.g. maya@university.invalid">
+                    <label class="form-label">University Email</label>
+                    <input type="email" id="candidateEmailInput" class="form-input" required placeholder="e.g. rachel@university.invalid">
                 </div>
-                <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
-                    <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
-                    <button type="submit" class="btn btn-primary">Create Profile</button>
+                <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.5rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addCandidateModal')">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Candidate</button>
                 </div>
             </form>
         </div>
@@ -283,56 +286,50 @@
 
     <!-- 2. Add Company Modal -->
     <div id="addCompanyModal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Register Partner Company</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <form id="addCompanyForm">
+        <div class="modal-card">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-heading); margin-bottom: 1.25rem;">Register Partner Employer</h3>
+            <form id="addCompanyForm" onsubmit="submitNewCompany(event)">
                 <div class="form-group">
-                    <label class="form-label" for="newCompanyName">Company Legal Name</label>
-                    <input type="text" id="newCompanyName" class="form-control" required placeholder="e.g. Vertex Robotics">
+                    <label class="form-label">Company Legal Name</label>
+                    <input type="text" id="companyNameInput" class="form-input" required placeholder="e.g. Apex Robotics">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="newCompanyDesc">Industry & Specialization</label>
-                    <input type="text" id="newCompanyDesc" class="form-control" placeholder="e.g. Embedded Systems & Autonomous Navigation">
+                    <label class="form-label">Industry & Focus</label>
+                    <input type="text" id="companyDescInput" class="form-input" placeholder="e.g. Autonomous Systems & IoT">
                 </div>
-                <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
-                    <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.5rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addCompanyModal')">Cancel</button>
                     <button type="submit" class="btn btn-primary">Register Company</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- 3. Add Internship Modal -->
+    <!-- 3. Publish Internship Modal -->
     <div id="addInternshipModal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">Publish Internship Opportunity</h3>
-                <button class="modal-close">&times;</button>
-            </div>
-            <form id="addInternshipForm">
+        <div class="modal-card" style="max-width: 580px;">
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: var(--text-heading); margin-bottom: 1.25rem;">Publish Internship Opening</h3>
+            <form id="addInternshipForm" onsubmit="submitNewInternship(event)">
                 <div class="form-group">
-                    <label class="form-label" for="newInternshipCompany">Hiring Company</label>
-                    <select id="newInternshipCompany" class="form-control" required></select>
+                    <label class="form-label">Hiring Company</label>
+                    <select id="modalCompanySelect" class="form-input" required></select>
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="newInternshipTitle">Position Title</label>
-                    <input type="text" id="newInternshipTitle" class="form-control" required placeholder="e.g. Embedded Firmware Engineer">
+                    <label class="form-label">Position Title</label>
+                    <input type="text" id="modalRoleTitle" class="form-input" required placeholder="e.g. Firmware Engineer Intern">
                 </div>
                 <div class="form-group">
-                    <label class="form-label" for="newInternshipDesc">Role Description</label>
-                    <input type="text" id="newInternshipDesc" class="form-control" placeholder="Brief outline of intern responsibilities">
+                    <label class="form-label">Role Description</label>
+                    <input type="text" id="modalRoleDesc" class="form-input" placeholder="Responsibilities and scope">
                 </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                     <div class="form-group">
-                        <label class="form-label" for="newInternshipLocation">Location</label>
-                        <input type="text" id="newInternshipLocation" class="form-control" value="Colombo">
+                        <label class="form-label">Location</label>
+                        <input type="text" id="modalRoleLoc" class="form-input" value="Colombo">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="newInternshipMode">Work Mode</label>
-                        <select id="newInternshipMode" class="form-control">
+                        <label class="form-label">Work Mode</label>
+                        <select id="modalRoleMode" class="form-input">
                             <option value="Hybrid">Hybrid</option>
                             <option value="Onsite">Onsite</option>
                             <option value="Remote">Remote</option>
@@ -341,27 +338,23 @@
                 </div>
                 <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
                     <div class="form-group">
-                        <label class="form-label" for="newInternshipStipend">Monthly Stipend (LKR)</label>
-                        <input type="number" id="newInternshipStipend" class="form-control" value="30000" min="0">
+                        <label class="form-label">Monthly Stipend (LKR)</label>
+                        <input type="number" id="modalRoleStipend" class="form-input" value="30000" min="0">
                     </div>
                     <div class="form-group">
-                        <label class="form-label" for="newInternshipCapacity">Cohort Capacity</label>
-                        <input type="number" id="newInternshipCapacity" class="form-control" value="2" min="1">
+                        <label class="form-label">Capacity (Positions)</label>
+                        <input type="number" id="modalRoleCapacity" class="form-input" value="2" min="1">
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="form-label" for="newInternshipDeadline">Application Deadline</label>
-                    <input type="date" id="newInternshipDeadline" class="form-control" value="2026-12-31" required>
-                </div>
-                <div style="display: flex; justify-content: flex-end; gap: 0.75rem; margin-top: 1.5rem;">
-                    <button type="button" class="btn btn-secondary modal-cancel">Cancel</button>
+                <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 1.5rem;">
+                    <button type="button" class="btn btn-secondary" onclick="closeModal('addInternshipModal')">Cancel</button>
                     <button type="submit" class="btn btn-primary">Publish Role</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <!-- Floating Toasts -->
+    <!-- Toast Notification Container -->
     <div id="toastContainer" class="toast-container"></div>
 
     <script src="app.js"></script>
