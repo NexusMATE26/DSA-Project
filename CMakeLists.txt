@@ -49,6 +49,11 @@ endif()
 add_executable(internpath_server src/server/main.cpp)
 target_link_libraries(internpath_server PRIVATE internpath_api)
 
+# Standalone CLI version for terminal management, testing, and viva demos
+add_executable(internpath_cli src/cli/main.cpp)
+target_link_libraries(internpath_cli PRIVATE internpath_domain)
+
+
 if(INTERNPATH_BUILD_TESTS)
     enable_testing()
     add_executable(test_matching tests/test_matching.cpp)
